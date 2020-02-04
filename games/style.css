@@ -18,15 +18,39 @@ body{
     background-repeat: no-repeat;
 }
 
-.pacman{
+.pacmanRight{
     background: url(pacman.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+.pacmanLeft{
+    background: url(pacman.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotate(180deg)
+}
+
+.pacmanUp{
+    background: url(pacman.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotate(270deg)
+}
+
+.pacmanDown{
+    background: url(pacman.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotate(90deg)
+}
+
 .empty{
-    background-color: lightblue;
+    background-color: black;
     
 }
 
