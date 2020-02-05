@@ -26,6 +26,14 @@ body{
 
 }
 
+.ghost{
+    background: url(ghost.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+}
+
 .pacmanRight{
     background: url(pacman.gif);
     background-position: center;
@@ -61,10 +69,18 @@ body{
     background-color: black;
     
 }
+
+#world{
+    display: inline-block;
+
+}
+
 #score{
     height: 50px;
+
     display: inline-block;
     vertical-align: top;
+    
     border: 2px solid white;
     width: 50px;
     color: white;
@@ -73,11 +89,27 @@ body{
     padding: 5px;
 
 }
-
-#world{
+#lifescontainer{
+    height: 100px;
     display: inline-block;
+    vertical-align: top;
+    
+    border: 2px solid white;
+    width: 100px;
+    color: white;
+    margin: 15px;
+    text-align: center;
+    padding: 5px;
 
 }
+
+#lifescontainer div{
+
+    font-size: 10;
+
+}
+
+
 
 
 
