@@ -1,6 +1,7 @@
 
 body{
     background-color: black;
+    margin: 0px;
 }
 
 .row div{
@@ -34,14 +35,17 @@ body{
 
 }
 
-.pacmanRight{
+#pacman{
     background: url(pacman.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    width: 20px;
+    height: 20px;
 }
 
-.pacmanLeft{
+/* .pacmanLeft{
     background: url(pacman.gif);
     background-position: center;
     background-repeat: no-repeat;
@@ -63,7 +67,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     transform: rotate(90deg)
-}
+} */
 
 .pacmanGirl{
     background: url(pacmangirl.gif);
@@ -98,7 +102,7 @@ body{
 
 }
 #lifescontainer{
-    height: 100px;
+    height: 50px;
     display: inline-block;
     vertical-align: top;
     
@@ -111,11 +115,6 @@ body{
 
 }
 
-#lifescontainer div{
-
-    font-size: 10;
-
-}
 
 
 
