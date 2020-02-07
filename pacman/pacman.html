@@ -31,14 +31,14 @@
         var world = [
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,2,2,2,2,2,2,2,2], 
             [2, 0, 1, 1, 1, 1, 2, 2, 1, 1, 1,2,1,1,1,1,1,3,2],
-            [2, 2, 2, 1, 2, 1,  1, 1, 1, 2,3,2,1,2,2,2,1,1,2],
+            [2, 2, 2, 1, 2, 1,  1, 1, 1, 2,3,2,1,2,2,2,2,1,2],
             [2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1,2,1,1,1,2,1,1,2],
-            [2, 1, 2, 2, 1, 2, 2, 1, 1, 1, 1,2,2,2,1,2,1,1,2],
-            [2, 1, 2, 2, 1, 1, 1, 1, 2, 2, 1,2,2,1,1,1,1,1,2],
-            [2, 1, 1, 1, 1, 2, 0, 2, 1, 1, 1,1,1,1,1,1,1,1,2],
-            [2, 2, 2, 1, 1, 2, 2, 2, 1, 2, 1,2,1,3,1,1,1,1,2],
-            [2, 2, 2, 1, 1, 1, 2, 1, 1, 2, 1,2,1,2,1,1,1,1,2],
-            [2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1,2,1,1,1,1,1,1,2],
+            [2, 1, 2, 2, 1, 2, 2, 1, 1, 1, 1,2,2,2,1,2,1,2,2],
+            [2, 1, 2, 2, 1, 1, 1, 1, 2, 2, 1,2,2,1,1,1,1,2,2],
+            [2, 1, 1, 1, 1, 2, 0, 2, 1, 1, 1,1,1,3,2,1,2,2,2],
+            [2, 2, 2, 1, 1, 2, 2, 2, 1, 2, 1,2,1,2,2,1,1,1,2],
+            [2, 2, 2, 1, 1, 1, 2, 1, 1, 2, 1,2,1,2,2,2,2,1,2],
+            [2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1,2,1,1,2,1,2,1,2],
             [2, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1,2,2,1,1,1,1,1,2],
             [2, 1, 2, 2, 1, 1, 2, 2, 1, 2, 2,2,2,2,2,1,2,2,2],
             [2, 1, 3, 1, 1, 2, 2, 2, 1, 1, 1,1,1,1,1,1,1,0,2],
@@ -185,7 +185,22 @@
 
             displayAll();
         }
-W
+
+        function colision2(){
+            if(pacmanGirl.x==ghost.x && pacmanGirl.y==ghost.y){
+
+                    lifescontainer+=-1
+                    pacmanGirl.x=17
+                    pacmanGirl.y=12
+
+                    ghost.x=6
+                    ghost.y=6
+
+            } 
+
+            displayAll();
+        }
+
         function moveGhost(a){
             //Limitaciones movimientos fantasma y ladrillos
 
@@ -213,9 +228,10 @@ W
 
                 else{
                     
-                    world[ghost.y][ghost.x]=1
+
+                    
                     ghost.x++
-                    world[ghost.y][ghost.x]=0
+                    
                     displayAll();
                     
                     
@@ -242,9 +258,9 @@ W
 
                 else{
                    
-                    world[ghost.y][ghost.x]=1
+                   
                     ghost.x--
-                    world[ghost.y][ghost.x]=0
+                   
                     displayAll();
                    
                 }
@@ -270,9 +286,9 @@ W
 
                 else{
                    
-                    world[ghost.y][ghost.x]=1
+                    
                     ghost.y--
-                    world[ghost.y][ghost.x]=0
+                    
                     displayAll();
                    
                 }
@@ -298,15 +314,18 @@ W
 
                 else{
                     
-                    world[ghost.y][ghost.x]=1
+                   
                     ghost.y++
-                    world[ghost.y][ghost.x]=0
+                    
                     displayAll();
                     
                 }
             } 
-           
-            
+
+            colision();
+            colision2();
+
+                  
         }
 
 
@@ -460,7 +479,9 @@ W
                     world[pacmanGirl.y][pacmanGirl.x] = 0
                     displayAll();
                     displaypacmangirlRight();
-;                }                                
+                }  
+
+                colision2();
             }
             //move to left (with J)
             else if (e.which == 74) {
@@ -485,7 +506,9 @@ W
                     displayAll();
                     displaypacmangirlLeft();
 
-                }                
+                }  
+
+                colision2();              
             }
             //move to up (with I)
             else if (e.which == 73) {
@@ -511,6 +534,8 @@ W
                     displaypacmangirlUp();
 
                 }
+
+                colision2();
             }
 
             //move to down (with K)
@@ -537,6 +562,8 @@ W
                     displaypacmangirlDown();
 
                 }
+
+                colision2();
 
             }
 

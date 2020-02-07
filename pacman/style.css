@@ -1,6 +1,6 @@
 
 body{
-    background-color: black;
+    background-color:black;
     margin: 0px;
 }
 
@@ -10,7 +10,10 @@ body{
     display: inline-block;
 }
 .brick{
-    background-color: blue;
+    background-color: darkblue;
+    background: url(brick3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
 
 }
 
