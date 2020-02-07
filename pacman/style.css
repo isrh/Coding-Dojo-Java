@@ -27,22 +27,28 @@ body{
 
 }
 
-.ghost{
+#ghost{
     background: url(ghost.gif);
-    background-position: center;
+    
     background-repeat: no-repeat;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-position: center;
+
 
 
 }
 
 #pacman{
     background: url(pacman.gif);
-    background-position: center;
+    
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
     width: 20px;
     height: 20px;
+    background-position: center;
 }
 
 /* .pacmanLeft{
@@ -69,11 +75,15 @@ body{
     transform: rotate(90deg)
 } */
 
-.pacmanGirl{
+#pacmanGirl{
     background: url(pacmangirl.gif);
-    background-position: center;
+    
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-position: center;
 
 }
 
