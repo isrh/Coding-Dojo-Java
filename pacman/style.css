@@ -101,7 +101,7 @@ body{
 }
 
 #score{
-    height: 50px;
+    height: 30px;
 
     display: inline-block;
     vertical-align: top;
@@ -115,14 +115,14 @@ body{
 
 }
 #lifescontainer{
-    height: 50px;
+    height: 30px;
     display: inline-block;
     vertical-align: top;
     
     border: 2px solid white;
     width: 100px;
     color: white;
-    margin: 15px;
+    margin: 10px;
     text-align: center;
     padding: 5px;
 
