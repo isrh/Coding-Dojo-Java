@@ -1,0 +1,64 @@
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>Ninja</title>
+		<meta name="description" content="A really cool site!">
+        <link rel="stylesheet" type="text/css" href="style.css">
+       
+
+    </head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+
+
+            $('#img1').click(function(){
+
+                console.log('data-alt-src value is', $('#img1').attr('data-alt-src'));
+                
+               $('#img1').attr('src','cat0.png');
+            });
+
+
+        })
+
+    </script>
+
+	<body>
+
+        <div id='container'>
+
+            <div id='img1'>
+                <img src='ninja0.png' data-alt-src='cat0.png' />
+            </div>
+            <div id='img2'>
+                <img src='ninja1.png' />
+            </div>
+
+            <div id='img3'>
+                <img src='ninja2.png' />
+            </div>
+            <div id='img4'>
+                <img src='ninja3.png' />
+            </div>
+            <div id='img5'>
+                <img src='ninja4.png' />
+            </div>
+            
+
+
+            
+            
+
+
+        </div>
+
+        
+    </body>
+
+</html>
