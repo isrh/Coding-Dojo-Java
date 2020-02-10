@@ -1,0 +1,254 @@
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>Funciones jQuery</title>
+		<meta name="description" content="A really cool site!">
+        <link rel="stylesheet" type="text/css" href="style.css">
+       
+
+    </head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+
+            $('button.clickme').click(function(){
+                $("div.functionclick p").text("Hello world!");
+                
+            });
+
+            $('button.hide').click(function(){
+                $("div.functionhide p").hide();
+                
+            });
+            $('button.show').click(function(){
+                $("div.functionhide p").show();
+                
+            });
+
+            $('button.toggle').click(function(){
+                $("div.functiontoggle p").toggle();
+                
+            });
+
+            $('button.slidedown').click(function(){
+                $("div.functionslidedown p").slideDown();
+                
+            });
+
+            $('button.slideup').click(function(){
+                $("div.functionslidedown p").slideUp();
+                
+            });
+
+            $('button.slidetoggle').click(function(){
+                $("div.functionslidetoggle p").slideToggle();
+                
+            });
+
+            $('button.fadein').click(function(){
+                $('p.1').fadeIn();
+                $('p.2').fadeIn();
+                $('p.3').fadeIn();
+                
+            });
+            $('button.fadeout').click(function(){
+                $('p.1').fadeOut();
+                $('p.2').fadeOut();
+                $('p.3').fadeOut();
+                
+            });
+
+            $('button.addclass').click(function(){
+                $("div.functionaddclass").addClass("red");             
+            });
+
+            $('button.before').click(function(){
+                $("div.functionbefore p").before("<p>Hello world!</p>");           
+            });
+
+            $('button.after').click(function(){
+                $("div.functionafter p").after("<p>Hello world!</p>");           
+            });
+
+            $('button.append').click(function(){
+                $("div.functionappend p").append("<b>Hello world!</b>");           
+            });
+
+            $('button.html').click(function(){
+                $("div.functionhtml p").html("<b>Hello world!</b>");           
+            });
+
+            $('button.attr').click(function(){
+                $("div.functionattr h1").attr("color", "blue");           
+            });
+
+            $('button.val').click(function(){
+                $("div.functionval input").val("Ignacio");           
+            });
+
+            $('button.text').click(function(){
+                $("div.functiontext p").text("Coding Dojo");           
+            });
+
+
+
+
+        })
+
+        
+
+    </script>
+
+	<body>
+
+        <div id='container'>
+
+            <div class='functionclick'>
+                <h1>CLICK!</h1>
+                <button class='clickme'>jQuery Click</button>
+                <p>Click the button and this text change to 'Hello World</p>
+            </div>
+
+            <div class='functionhide'>
+                <h1>HIDE! & SHOW!</h1>
+                <button class='hide'>jQuery Hide</button>
+                <p>Click the button and this text disappear</p>
+                <button class='show'>jQuery show</button>
+            </div>
+
+            <div class='functiontoggle'>
+                <h1>TOGGLE</h1>
+                <button class='toggle'>jQuery Toggle</button>
+                <p>Click the button and this text disappear and appear</p>
+                
+            </div>
+
+            <div class='functionslidedown'>
+                <h1>sidleDown & slideUp</h1>                
+                <p>Click the button and this text disappear and appear</p>
+                <button class='slidedown'>jQuery Slide Down</button>
+                <button class='slideup'>jQuery Slide Up</button>
+                
+            </div>
+
+            <div class='functionslidetoggle'>
+                <h1>slideToggle</h1>
+                
+                <p>Click the button and this text disappear and appear</p>
+                <button class='slidetoggle'>jQuery slideToggle</button>
+                
+            </div>
+
+            <div class='functionfade'>
+                <h1>slideToggle</h1>
+                <button class='fadein'>jQuery fadeIn</button>
+                
+                <p class='1'>#1</p>
+                <p class='2'>#2</p>
+                <p class='3'>#3</p>
+
+                <button class='fadeout'>jQuery fadeOut</button>
+                
+                
+            </div>
+
+            <div class='functionaddclass'>
+                <h1>addClass</h1>
+                <button class='addclass'>jQuery addClass</button>
+                <p>Add class blue to this div</p>
+                
+                
+            </div>
+
+            <div class='functionbefore'>
+                <h1>BEFORE</h1>
+                <button class='before'>jQuery before</button>
+                <p>add p before this p</p>
+                
+                
+            </div>
+
+            <div class='functionafter'>
+                <h1>AFTER</h1>
+                <button class='after'>jQuery after</button>
+                <p>add p after this p</p>
+                            
+            </div>
+
+            <div class='functionappend'>
+                <h1>APPEND</h1>
+                <button class='append'>jQuery append</button>
+                <p>append after this: </p>
+                
+                
+            </div>
+
+            <div class='functionhtml'>
+                <h1>HTML</h1>
+                <button class='html'>jQuery HTML</button>
+                <p> Change the content of this'p' element: </p>
+                <p>and this other </p>
+                
+                
+            </div>
+
+            <div class='functionattr'>
+                <h1>ATTR</h1>
+                <button class='attr'>jQuery attr</button>
+                <p> Change the color of this p </p>
+                <p>and this other </p>
+                
+                
+            </div>
+
+            <div class='functionval'>
+                <h1>VAL</h1>
+
+                <p>Name: <input type="text" name="user"></p>
+
+                <button class='val'>jQuery val</button>
+
+            </div>
+
+            <div class='functiontext'>
+                <h1>TEXT</h1>
+
+                <p>"Hello world"></p>
+
+                <button class='text'>jQuery Text</button>
+
+
+                
+                
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+        
+
+        
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+</html>
