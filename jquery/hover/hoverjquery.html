@@ -1,0 +1,53 @@
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>J-Query hover</title>
+		<meta name="description" content="A really cool site!">
+        <link rel="stylesheet" type="text/css" href="style.css">
+       
+
+    </head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    
+    <script>
+
+        $(document).ready(function(){
+
+            $('img').hover(function(){
+
+                 temp=$(this).attr('src');
+                console.log(temp)
+
+				$(this).attr('src', $(this).attr('data-alt-src'));
+				}, function(){
+				$(this).attr('src',temp);
+			});
+        
+
+        })
+
+    </script>
+
+
+	<body>
+        <div id='container'>
+
+                <img id='img1' src='1.png'  data-alt-src='I.png' />       
+                <img id='img2' src='2.png' data-alt-src='II.png'/> 
+                <img id='img3' src='3.png' data-alt-src='III.png'/>
+                <img id='img4' src='4.png' data-alt-src='IV.png'/>
+                
+
+        </div>
+
+
+        
+
+        
+    </body>
+
+</html>
