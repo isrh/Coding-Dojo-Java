@@ -12,51 +12,42 @@
     </head>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    
     <script>
 
         $(document).ready(function(){
 
+            $('img').click(function(){
 
-            $('#img1').click(function(){
+                var temp= $(this).attr('src');
 
-                console.log('data-alt-src value is', $('#img1').attr('data-alt-src'));
+               
+                $(this).attr('src',$(this).attr('data-alt-src'));
+
+                $(this).attr('data-alt-src',temp);
+
                 
-               $('#img1').attr('src','cat0.png');
             });
-
+        
 
         })
 
     </script>
 
-	<body>
 
+	<body>
         <div id='container'>
 
-            <div id='img1'>
-                <img src='ninja0.png' data-alt-src='cat0.png' />
-            </div>
-            <div id='img2'>
-                <img src='ninja1.png' />
-            </div>
-
-            <div id='img3'>
-                <img src='ninja2.png' />
-            </div>
-            <div id='img4'>
-                <img src='ninja3.png' />
-            </div>
-            <div id='img5'>
-                <img src='ninja4.png' />
-            </div>
-            
-
-
-            
-            
-
+                <img id='img11' src='ninja0.png'  data-alt-src='cat0.png'/>       
+                <img id='img22' src='cat1.png' data-alt-src='ninja1.png'/> 
+                <img  id='img33' src='ninja2.png' data-alt-src='cat2.png'/>
+                <img id='img44' src='cat3.png' data-alt-src='ninja3.png'/>
+                <img id='img55' src='ninja4.png' data-alt-src='cat4.png'/>
 
         </div>
+
+
+        
 
         
     </body>
