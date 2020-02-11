@@ -1,0 +1,62 @@
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>Ninja</title>
+		<meta name="description" content="A really cool site!">
+        <link rel="stylesheet" type="text/css" href="style.css">
+       
+
+    </head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+
+            $('button.show').click(function(){
+                $('div.imagen').show();
+            });
+
+            $('div.imagen').click(function(){
+                $(this).hide();
+            });
+
+
+        
+
+        })
+
+    </script>
+
+	<body>
+
+        <div id='container'>
+
+            <div class='imagen'></div>
+            <div class='imagen'></div>
+            <div class='imagen'></div>
+            <div class='imagen'></div>
+            <div class='imagen'></div>
+            <div class='imagen'></div>
+            <div class='imagen'></div>
+            <div class='imagen'></div>
+
+            <div class='boton'>
+                
+                <button class="show">Mostrar imagenes</button>
+
+            </div>
+
+            
+            
+
+
+        </div>
+
+        
+    </body>
+
+</html>
