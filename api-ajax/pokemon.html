@@ -1,0 +1,37 @@
+<html>
+   <head>
+       <title>Pokemon</title>
+
+       
+       <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script> 
+       <script type="text/javascript">
+
+
+        function pokemon(){
+
+            for (var i=1; i<151 ; i++){
+
+                $('body').append('<img src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+i+'.png">')
+
+            }
+            
+        }
+
+       $(document).ready(function(){
+
+            pokemon();
+
+       })
+
+
+      </script>
+
+   </head>
+   <body>
+  
+
+
+
+      
+   </body>
+</html>
