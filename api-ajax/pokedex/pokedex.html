@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gotta Catch'em All</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script>
+
+
+            function pokemon(){
+
+                for (var i=1; i<151 ; i++){
+
+                    $('#container').append('<img src=https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png>');
+
+                   
+
+                    // $.get("https://pokeapi.co/api/v2/pokemon/"+id+"/", function(res) 
+                    //     console.log(id);
+                    //     $('#container').append('<p>'+res.id+'</p>')          
+                    //     // var html_str = "";
+                    //     // html_str += "<h4>"+res.name+"</h4>";
+                    //     // html_str += "<ul>";
+                    //     //     for(var j = 0; j < res.types.length; j++) {
+                    //     //         html_str += "<li>" + res.types[j].type.name + "</li>";
+                    //     //     }
+                    //     //     html_str += "</ul>";
+                    //     // var divname= "#"+res.name
+                    //     // $(divname).append(html_str);
+       
+                    // }, "json");
+
+                    // console.log
+
+                  
+
+                }
+
+                    $.get("https://pokeapi.co/api/v2/pokemon/1", function(res) {
+
+                        
+                        console.log(res);
+        
+                    }, "json");
+
+                    
+
+                }
+                        
+
+
+            
+    
+
+            $(document).ready(function(){
+
+               pokemon();
+
+                
+            })
+        </script>
+    </head>
+    <body>
+
+        <div id="container">
+
+
+
+        </div>
+        
+    </body>
+</html>
