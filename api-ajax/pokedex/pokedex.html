@@ -11,64 +11,202 @@
 
             function pokemon(){
 
-                for (var i=1; i<151 ; i++){
-
-                    $('#container').append('<img src=https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png>');
-
+                for (var i=1; i<152 ; i++){
                    
+                     $('#container').append('<img id='+i+' src=https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png>');
 
-                    // $.get("https://pokeapi.co/api/v2/pokemon/"+id+"/", function(res) 
-                    //     console.log(id);
-                    //     $('#container').append('<p>'+res.id+'</p>')          
-                    //     // var html_str = "";
-                    //     // html_str += "<h4>"+res.name+"</h4>";
-                    //     // html_str += "<ul>";
-                    //     //     for(var j = 0; j < res.types.length; j++) {
-                    //     //         html_str += "<li>" + res.types[j].type.name + "</li>";
-                    //     //     }
-                    //     //     html_str += "</ul>";
-                    //     // var divname= "#"+res.name
-                    //     // $(divname).append(html_str);
-       
-                    // }, "json");
+                } 
 
-                    // console.log
+            }
 
-                  
 
-                }
+            function getChain(j){
 
-                    $.get("https://pokeapi.co/api/v2/pokemon/1", function(res) {
+                var idchain=""
 
+                $.get("https://pokeapi.co/api/v2/pokemon-species/"+j+"", function(res) { 
+
+                    $.get(res.evolution_chain.url, function(res2) { 
                         
-                        console.log(res);
-        
+                        idchain=res2.id;
+                        console.log(idchain);
+                        
                     }, "json");
+                },"json");
 
-                    
+                return idchain;
 
-                }
-                        
+            }
 
+            function getEvolution(){
+
+                getChain(1);
+
+            }
 
             
-    
 
+
+
+            function viewPokemon(x){
+
+                $('#pokedex').hide();
+
+                $.get("https://pokeapi.co/api/v2/pokemon/"+x+"/", function(res) {
+
+                       
+                        $('#name').html(res.name);
+                        $('#imagen').attr('src','https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+x+'.png')
+
+                        
+                            var tipos="";
+                            for(var j = 0; j < res.types.length; j++) {
+                                
+                                tipos+="<li>" + res.types[j].type.name + "</li>";
+
+                                if(res.types[j].type.name=="grass"){
+                                    tipos+="<img src=grass.png width=50px height=50px>";
+
+                                }
+
+                                if(res.types[j].type.name=="poison"){
+                                    tipos+="<img src=poison.png width=50px height=50px>";
+
+                                }
+
+                                if(res.types[j].type.name=="fire"){
+                                    tipos+="<img src=fire.png width=50px height=50px>";
+
+                                }
+
+                                if(res.types[j].type.name=="flying"){
+                                    tipos+="<img src=fly.png width=50px height=50px>";
+
+                                }
+
+                                if(res.types[j].type.name=="bug"){
+                                    tipos+="<img src=bug.png width=50px height=50px>";
+
+                                }
+
+                                if(res.types[j].type.name=="dark"){
+                                    tipos+="<img src=dark.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="electric"){
+                                    tipos+="<img src=electric.png width=50px height=50px>";
+
+                                }
+
+                                if(res.types[j].type.name=="normal"){
+                                    tipos+="<img src=normal.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="fairy"){
+                                    tipos+="<img src=fairy.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="fighting"){
+                                    tipos+="<img src=fighting.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="ghost"){
+                                    tipos+="<img src=ghost.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="ground"){
+                                    tipos+="<img src=ground.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="ice"){
+                                    tipos+="<img src=ice.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="psychic"){
+                                    tipos+="<img src=psychic.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="rock"){
+                                    tipos+="<img src=rock.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="water"){
+                                    tipos+="<img src=water.png width=50px height=50px>";
+
+                                }
+
+                                if(res.types[j].type.name=="steel"){
+                                    tipos+="<img src=steel.png width=50px height=50px>";
+
+                                }
+                                if(res.types[j].type.name=="dragon"){
+                                    tipos+="<img src=dragon.png width=50px height=50px>";
+
+                                }
+                            }
+                            $('#typevalue').html(tipos) ;
+
+                        
+                        $('#heightvalue').html("- "+res.height);
+                        $('#weightvalue').html("- "+res.weight);
+
+                       
+                            
+                    }, "json");
+
+                    $('#pokedex').show();
+
+
+            }                          
+
+        
             $(document).ready(function(){
 
                pokemon();
 
+               $('#pokedex').hide();
+
+               $("img").click(function(){
+
+                    getEvolution($(this).attr('id'));
+                    viewPokemon($(this).attr('id'));
+
+                });
                 
             })
+
         </script>
     </head>
     <body>
 
         <div id="container">
 
+        </div>
 
+        <div id="pokedex">
+
+            <div id="white">
+
+                <h2 id='name'></h2>
+                <img id='imagen'>
+                <h3 id='type'>Type:</h3>
+                 <ul id='typevalue'></ul>
+
+
+                <h3 id='height'>Height:</h3>
+                <h4 id='heightvalue'></h4>
+
+                <h3 id='weight'>Weight:</h3>
+                <h4 id='weightvalue'></h4>
+
+
+            </div>
 
         </div>
+
         
     </body>
 </html>
+
+
+
