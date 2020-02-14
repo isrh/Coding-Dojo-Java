@@ -9,7 +9,7 @@
 
 #container div{
     display: inline-block;
-    background-color: white;
+    
     margin: 5px;
     height: 100px;
     width: 100px;
@@ -21,6 +21,7 @@
 #container img{
     height: 100px;
     width: 100px;
+    margin: 5px;
 }
 
 #pokedex{

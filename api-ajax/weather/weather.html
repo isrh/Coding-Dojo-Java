@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Weather</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script>
+
+            var appid="b297d01792512b048d5fe73cafdfde48";
+
+            function viewWeather(a){
+
+                
+
+                $.get("http://api.openweathermap.org/data/2.5/weather?q="+a+"&&appid="+appid, function(res) {
+
+                    var tempk="";
+                    var tempc="";
+                    var img="";
+
+                   tempk=(res.main.temp);
+                   tempc=(tempk-273.15);
+
+
+                   console.log(res)
+
+                   $('#temp').html(Math.trunc(tempc)+" °C");
+
+                   img=res.weather[0].main
+
+                   console.log(img);
+
+                   if(img=="Clouds"){
+
+                    $('#weather').attr('src','cloudly.png');
+
+
+                   }
+
+                }, "json");
+
+            }
+
+               
+
+
+                $(document).ready(function() {
+
+                $('form').submit(function() {
+                    // your code here (build up your url)
+
+                    
+
+                    viewWeather(cityname.value);
+
+                    // don't forget to return false so the page doesn't refresh
+                    return false;
+                });
+            });
+
+
+        </script>
+    </head>
+    <body>
+
+        <form action="/action_page.php">
+
+            <label for="cityname">City: </label>
+            <input type="text" id="cityname" name="cityname">
+           
+            <input type="submit" value="Submit">
+
+        </form>
+
+        <div id='temperatura'>
+
+            <img id='weather'>
+
+            <h1 id='temp'></h1>
+
+        </div>
+
+        
+    </body>
+</html>

@@ -1,0 +1,18 @@
+
+   
+
+#temperatura{
+    width: 600px;
+    height: 200px;
+    display: inline-block;
+
+}
+
+#temperatura h1{
+   
+    display: inline-block;
+    vertical-align: top;
+    
+
+}
+
