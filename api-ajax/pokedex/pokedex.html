@@ -64,6 +64,8 @@
 
                 $('#pokedex').hide();
 
+                $('#evolutionimg').attr('width','100');
+
                 $.get("https://pokeapi.co/api/v2/pokemon/"+x+"/", function(res) {
 
                        
@@ -162,7 +164,9 @@
                         $('#heightvalue').html("- "+res.height);
                         $('#weightvalue').html("- "+res.weight);
 
-                        if(seeEvolutionchain(xnum)!=seeEvolutionchain(xnum+1)){
+                       
+
+                        if(seeEvolutionchain(xnum)!=seeEvolutionchain(xnum+1) || xnum==134 || xnum==135 || xnum==136){
                             $('#evolutionimg').attr('src','lastevolution.png')
                             $('#nameevolution').html("Final evolution");
                             
@@ -172,22 +176,40 @@
 
                         else if(seeEvolutionchain(xnum)==seeEvolutionchain(xnum+1)){
 
-                            $('#evolutionimg').attr('src','https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+(xnum+1)+'.png')
-                            $('#evolutionimg').attr('height','100');
-                            $('#evolutionimg').attr('width','100')
+                            $('#evolutionimg').attr('src','https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+(xnum+1)+'.png');
+
 
                             $.get("https://pokeapi.co/api/v2/pokemon/"+(xnum+1)+"/", function(res2) {
 
-                               
+                               if(xnum==133){
+
+                                $('#nameevolution').html("Vaporeon/Jolteon/Flareon");
+
+                               }
+
+                               else{
+
                                 $('#nameevolution').html(res2.name);
+
+                               }
+                               
 
 
                             }, "json");
 
                             
-                            
-                            
                         }
+
+                        if(xnum==133){
+
+                            $('#evolutionimg').attr('src','evechain.png');    
+                            $('#evolutionimg').attr('width','250');
+                            $('#evolutionimg').css('marginleft','50px');
+                           
+
+                        }
+
+                        
 
                     
           
@@ -244,7 +266,7 @@
                 <h3 id='evolution'>Evolution:</h3>
                 
 
-                <img id='evolutionimg'>
+                <img id='evolutionimg' width="100" height="100">
 
                 <p id='nameevolution'></p>
 
