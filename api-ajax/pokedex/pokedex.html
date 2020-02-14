@@ -8,10 +8,12 @@
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script>
 
+            var evolutionChain=[];
+
 
             function pokemon(){
 
-                for (var i=1; i<11 ; i++){
+                for (var i=1; i<=151 ; i++){
                    
                      $('#container').append('<img id='+i+' src=https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png>');
 
@@ -20,35 +22,45 @@
             }
 
 
-            // function getEvolution(j){
+            function getEvolution(j){
 
-            //     var idnum=parseInt(j);
-            //     var idchain;
+                var idnum=parseInt(j);
 
-
-            //      $.get("https://pokeapi.co/api/v2/pokemon-species/"+j, function(res) {
-           
-            //         idchain=(res.evolution_chain.url);
-
-            //         $.get("https://pokeapi.co/api/v2/evolution-chain/"+res.evolution_chain.url+"", function(res2) {
-
-            //             console.log(res2)
-
-            //         },"json");
-
-                    
+               
+                var idchain;
 
 
-                    
+
+                $.get("https://pokeapi.co/api/v2/pokemon-species/"+idnum+"/", function(res) {
+
+                   idchain=(res.evolution_chain.url);          
+                   evolutionChain.push(idchain);
+
+                }, "json");
 
 
-            //     },"json");
-                
-            // }
+
+            }
+
+            function seeEvolutionchain(a){
+
+                return evolutionChain[a-1];
+            }
+
+            function evolution(){
+
+                for (var i=1; i<=151;i++){
+                getEvolution(i);
+               }
+            }
+
+
 
 
         
             function viewPokemon(x){
+
+                var xnum=parseInt(x);
 
                 $('#pokedex').hide();
 
@@ -149,16 +161,43 @@
                         
                         $('#heightvalue').html("- "+res.height);
                         $('#weightvalue').html("- "+res.weight);
-                        
-                        
-                        getEvolution(x);
-                       
 
+                        if(seeEvolutionchain(xnum)!=seeEvolutionchain(xnum+1)){
+                            $('#evolutionimg').attr('src','lastevolution.png')
+                            $('#nameevolution').html("Final evolution");
+                            
+
+                        }
                         
+
+                        else if(seeEvolutionchain(xnum)==seeEvolutionchain(xnum+1)){
+
+                            $('#evolutionimg').attr('src','https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+(xnum+1)+'.png')
+                            $('#evolutionimg').attr('height','100');
+                            $('#evolutionimg').attr('width','100')
+
+                            $.get("https://pokeapi.co/api/v2/pokemon/"+(xnum+1)+"/", function(res2) {
+
+                               
+                                $('#nameevolution').html(res2.name);
+
+
+                            }, "json");
+
+                            
+                            
+                            
+                        }
+
+                    
           
                     }, "json");
 
+
+                    
                     $('#pokedex').show();
+
+
 
 
             }                          
@@ -167,16 +206,16 @@
             $(document).ready(function(){
 
                pokemon();
+               evolution();
+
+               
 
                $('#pokedex').hide();
 
                $("img").click(function(){
-
-                    
                     viewPokemon($(this).attr('id'));
-
+    
                 });
-                
             })
 
         </script>
@@ -197,10 +236,17 @@
                  <ul id='typevalue'></ul>
 
 
-                <h3 id='height'>Height:</h3> <h4 id='heightvalue'></h4>
+                <h3 id='height'>Height:</h3> <p id='heightvalue'></p>
                
 
-                <h3 id='weight'>Weight:</h3><h4 id='weightvalue'></h4>
+                <h3 id='weight'>Weight:</h3><p id='weightvalue'></p>
+
+                <h3 id='evolution'>Evolution:</h3>
+                
+
+                <img id='evolutionimg'>
+
+                <p id='nameevolution'></p>
 
                 
 
