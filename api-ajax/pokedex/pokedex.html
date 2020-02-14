@@ -11,7 +11,7 @@
 
             function pokemon(){
 
-                for (var i=1; i<152 ; i++){
+                for (var i=1; i<11 ; i++){
                    
                      $('#container').append('<img id='+i+' src=https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png>');
 
@@ -20,34 +20,34 @@
             }
 
 
-            function getChain(j){
+            // function getEvolution(j){
 
-                var idchain=""
-
-                $.get("https://pokeapi.co/api/v2/pokemon-species/"+j+"", function(res) { 
-
-                    $.get(res.evolution_chain.url, function(res2) { 
-                        
-                        idchain=res2.id;
-                        console.log(idchain);
-                        
-                    }, "json");
-                },"json");
-
-                return idchain;
-
-            }
-
-            function getEvolution(){
-
-                getChain(1);
-
-            }
-
-            
+            //     var idnum=parseInt(j);
+            //     var idchain;
 
 
+            //      $.get("https://pokeapi.co/api/v2/pokemon-species/"+j, function(res) {
+           
+            //         idchain=(res.evolution_chain.url);
 
+            //         $.get("https://pokeapi.co/api/v2/evolution-chain/"+res.evolution_chain.url+"", function(res2) {
+
+            //             console.log(res2)
+
+            //         },"json");
+
+                    
+
+
+                    
+
+
+            //     },"json");
+                
+            // }
+
+
+        
             function viewPokemon(x){
 
                 $('#pokedex').hide();
@@ -149,9 +149,13 @@
                         
                         $('#heightvalue').html("- "+res.height);
                         $('#weightvalue').html("- "+res.weight);
-
+                        
+                        
+                        getEvolution(x);
                        
-                            
+
+                        
+          
                     }, "json");
 
                     $('#pokedex').show();
@@ -168,7 +172,7 @@
 
                $("img").click(function(){
 
-                    getEvolution($(this).attr('id'));
+                    
                     viewPokemon($(this).attr('id'));
 
                 });
@@ -193,12 +197,12 @@
                  <ul id='typevalue'></ul>
 
 
-                <h3 id='height'>Height:</h3>
-                <h4 id='heightvalue'></h4>
+                <h3 id='height'>Height:</h3> <h4 id='heightvalue'></h4>
+               
 
-                <h3 id='weight'>Weight:</h3>
-                <h4 id='weightvalue'></h4>
+                <h3 id='weight'>Weight:</h3><h4 id='weightvalue'></h4>
 
+                
 
             </div>
 
