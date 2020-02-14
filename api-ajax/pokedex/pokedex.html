@@ -9,27 +9,18 @@
         <script>
 
             var evolutionChain=[];
-
-
+            
             function pokemon(){
 
                 for (var i=1; i<=151 ; i++){
-                   
                      $('#container').append('<img id='+i+' src=https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png>');
-
                 } 
-
             }
-
 
             function getEvolution(j){
 
                 var idnum=parseInt(j);
-
-               
                 var idchain;
-
-
 
                 $.get("https://pokeapi.co/api/v2/pokemon-species/"+idnum+"/", function(res) {
 
@@ -38,26 +29,18 @@
 
                 }, "json");
 
-
-
             }
 
             function seeEvolutionchain(a){
-
                 return evolutionChain[a-1];
             }
 
             function evolution(){
-
                 for (var i=1; i<=151;i++){
                 getEvolution(i);
                }
             }
 
-
-
-
-        
             function viewPokemon(x){
 
                 var xnum=parseInt(x);
@@ -68,11 +51,9 @@
 
                 $.get("https://pokeapi.co/api/v2/pokemon/"+x+"/", function(res) {
 
-                       
                         $('#name').html(res.name);
                         $('#imagen').attr('src','https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+x+'.png')
 
-                        
                             var tipos="";
                             for(var j = 0; j < res.types.length; j++) {
                                 
@@ -159,45 +140,31 @@
                                 }
                             }
                             $('#typevalue').html(tipos) ;
-
-                        
+                       
                         $('#heightvalue').html("- "+res.height);
                         $('#weightvalue').html("- "+res.weight);
-
-                       
 
                         if(seeEvolutionchain(xnum)!=seeEvolutionchain(xnum+1) || xnum==134 || xnum==135 || xnum==136){
                             $('#evolutionimg').attr('src','lastevolution.png')
                             $('#nameevolution').html("Final evolution");
-                            
-
-                        }
-                        
+                        }                     
 
                         else if(seeEvolutionchain(xnum)==seeEvolutionchain(xnum+1)){
 
                             $('#evolutionimg').attr('src','https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+(xnum+1)+'.png');
 
-
                             $.get("https://pokeapi.co/api/v2/pokemon/"+(xnum+1)+"/", function(res2) {
 
                                if(xnum==133){
-
                                 $('#nameevolution').html("Vaporeon/Jolteon/Flareon");
-
                                }
 
                                else{
-
                                 $('#nameevolution').html(res2.name);
-
                                }
                                
-
-
                             }, "json");
-
-                            
+                           
                         }
 
                         if(xnum==133){
@@ -206,17 +173,10 @@
                             $('#evolutionimg').attr('width','250');
                             $('#evolutionimg').css('marginleft','50px');
                            
-
                         }
 
-                        
-
-                    
-          
                     }, "json");
 
-
-                    
                     $('#pokedex').show();
 
 
