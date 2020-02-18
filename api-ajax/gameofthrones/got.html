@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Game of Thrones</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script>
+
+            
+
+        function viewHouses(x){
+
+            $.get("https://anapioficeandfire.com/api/houses/"+x+"", function(res) {
+                console.log(res);
+               $('#name').html(res.name);
+               $('#words').html(" ' "+res.words+"'");
+               $('#region').html("Region: "+ res.region);
+               $('#coatOfArms').html("Coat of Arms: "+res.coatOfArms);
+
+
+               var titulos="";
+                            for(var j = 0; j < res.titles.length; j++) {
+
+                               
+                                titulos+="<li>" + res.titles[j]+"</li>";
+
+
+                            }
+
+                $('#titles').html("Titles: "+titulos);
+                $('#founded').html("Founded: "+res.founded)
+
+                $.get(res.currentLord, function(res2) {
+
+                    $('#currentlord').html("Current Lord: "+res2.name);
+                    
+                }, "json");
+
+
+            }, "json");
+
+           $('#information').show();
+
+        }
+
+        //STARK 362
+        //TARGARYEN 378
+        //Lannister 229
+        //Baratehon 15
+        //Arryn 6
+        //greyjoy 169
+        //martell 285
+        //tully 395
+        //tyrell 398
+        
+
+            $(document).ready(function() {
+
+                $('#information').hide();
+
+                $('img').click(function(){
+
+                    viewHouses($(this).attr('id'));
+
+                    
+
+                });
+              
+
+            }); 
+
+
+        </script>
+    </head>
+    <body>
+
+        <div id="container">
+
+            
+
+            <img id='15' src='baratheon.jpg' width="200" height="200">
+            <img id='229' src='lannister.jpg' width="200" height="200">
+            <img id='362' src='stark.jpg' width="200" height="200">
+            <img id='6' src='arryn.jpg' width="200" height="200">
+            <img id='169' src='greyjoy.jpg' width="200" height="200">
+            <img id='285' src= 'martell.jpg' width="200" height="200">
+            <img id='395' src='tully.jpg' width="200" height="200">
+            <img id='398' src='tyrell.jpg' width="200" height="200">
+
+        </div>
+
+
+        <div id='information'>
+
+                <h3 id='name'></h3>
+                <h4 id='words'></h4>
+                <h4 id='region'></h4>
+                <h4 id='currentlord'></h4>
+
+                <h4 id='coatOfArms'></h4>
+                
+                <ul id='titles'></ul>
+                <h4 id='founded'></h4>
+
+         </div>
+           
+
+
+
+
+        
+    </body>
+</html>
