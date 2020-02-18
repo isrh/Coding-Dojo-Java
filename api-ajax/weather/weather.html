@@ -12,8 +12,9 @@
 
             function viewWeather(a){
 
-                
+                console.log(a);
 
+            
                 $.get("http://api.openweathermap.org/data/2.5/weather?q="+a+"&&appid="+appid, function(res) {
 
                     var tempk="";
@@ -23,14 +24,11 @@
                    tempk=(res.main.temp);
                    tempc=(tempk-273.15);
 
-
-                   console.log(res)
+                   tempf=(tempc * 9/5) + 32;
 
                    $('#temp').html(Math.trunc(tempc)+" °C");
 
                    img=res.weather[0].main
-
-                   console.log(img);
 
                    if(img=="Clouds"){
 
@@ -43,21 +41,18 @@
 
             }
 
-               
-
-
                 $(document).ready(function() {
 
-                $('form').submit(function() {
-                    // your code here (build up your url)
+                    $('#formulario').submit(function() {
+                        // your code here (build up your url)
 
-                    
+                        if(#formulario)
 
-                    viewWeather(cityname.value);
+                        viewWeather(cityname.value);
 
-                    // don't forget to return false so the page doesn't refresh
-                    return false;
-                });
+                        // don't forget to return false so the page doesn't refresh
+                        return false;
+                    });
             });
 
 
@@ -65,20 +60,24 @@
     </head>
     <body>
 
-        <form action="/action_page.php">
-
-            <label for="cityname">City: </label>
-            <input type="text" id="cityname" name="cityname">
-           
-            <input type="submit" value="Submit">
-
-        </form>
+        
 
         <div id='temperatura'>
 
-            <img id='weather'>
+            <form id='formulario' action="/action_page.php">
 
+                <label for="cityname">City: </label>
+                <input type="text" id="cityname" name="cityname"> <br>
+                
+                <input type='submit' value='Fº' >
+                <input type='submit' value='Cº' >
+    
+            </form>
+
+            <img id='weather'>
             <h1 id='temp'></h1>
+
+           
 
         </div>
 

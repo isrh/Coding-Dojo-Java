@@ -2,9 +2,18 @@
    
 
 #temperatura{
-    width: 600px;
-    height: 200px;
+
+    background-color: orange;
+    width: 300px;
+    height: 300px;
     display: inline-block;
+    
+}
+
+#formulario{
+
+    text-align: center;
+    margin: 10px;
 
 }
 
@@ -12,7 +21,6 @@
    
     display: inline-block;
     vertical-align: top;
-    
 
 }
 
