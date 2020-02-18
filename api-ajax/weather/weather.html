@@ -10,49 +10,71 @@
 
             var appid="b297d01792512b048d5fe73cafdfde48";
 
-            function viewWeather(a){
+            function viewWeather(a,t){
 
-                console.log(a);
-
-            
                 $.get("http://api.openweathermap.org/data/2.5/weather?q="+a+"&&appid="+appid, function(res) {
 
                     var tempk="";
                     var tempc="";
                     var img="";
+                    
 
                    tempk=(res.main.temp);
                    tempc=(tempk-273.15);
 
                    tempf=(tempc * 9/5) + 32;
 
-                   $('#temp').html(Math.trunc(tempc)+" °C");
+                   if(t=="celsius"){
 
-                   img=res.weather[0].main
-
-                   if(img=="Clouds"){
-
-                    $('#weather').attr('src','cloudly.png');
-
+                        $('#temp').html(Math.trunc(tempc)+" °C");
 
                    }
+
+                   if(t=="fahrenheit"){
+
+                        $('#temp').html(Math.trunc(tempf)+" °F");
+
+                    }
+
+                    console.log(res);
+                    $('#description').html(res.weather[0].main);
+                    $('#description2').html(res.weather[0].description);
+                    $('#information').css('border','orangered 2px solid');
+
+                
+
 
                 }, "json");
 
             }
 
+
+
                 $(document).ready(function() {
 
                     $('#formulario').submit(function() {
-                        // your code here (build up your url)
 
-                        if(#formulario)
+                        var option = $('input:checked').val()  
+                        
 
-                        viewWeather(cityname.value);
+                        if (option==="celsius"){
+                            
+                            viewWeather(cityname.value,option);
+                        }
 
-                        // don't forget to return false so the page doesn't refresh
+                        if (option==="fahrenheit"){
+                           
+                            viewWeather(cityname.value,option);
+                        }
+
+
+
+                        
+
                         return false;
+
                     });
+
             });
 
 
@@ -64,18 +86,33 @@
 
         <div id='temperatura'>
 
-            <form id='formulario' action="/action_page.php">
+            <h1 id='title'>WEATHER</h1>
+
+            <form id='formulario' method="dialog">
 
                 <label for="cityname">City: </label>
                 <input type="text" id="cityname" name="cityname"> <br>
+
+                <input class='option' type='radio' name='topping' value='celsius'>Celsius<br>
+                <input class='option' type='radio' name='topping' value='fahrenheit'>Fahrenheit<br>
+
                 
-                <input type='submit' value='Fº' >
-                <input type='submit' value='Cº' >
+                <input type='submit' value='submitt'>
+                
     
             </form>
 
-            <img id='weather'>
-            <h1 id='temp'></h1>
+            <div id='information'>
+
+                <h2 id='temp'></h2>
+                <h2 id='description'></h2>
+                <h3 id='description2'></h2>
+
+
+            </div>
+
+            
+
 
            
 

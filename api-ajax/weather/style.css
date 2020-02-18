@@ -4,23 +4,55 @@
 #temperatura{
 
     background-color: orange;
-    width: 300px;
-    height: 300px;
+    width: 260px;
+    height: 400px;
     display: inline-block;
+
+    font-family: sans-serif;
+    color: white;
+    padding: 5px;
+    border: orangered 5px solid;
     
 }
 
 #formulario{
 
-    text-align: center;
+    padding: 10px;
     margin: 10px;
 
+}
+
+.option{
+   margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#title{
+    text-align: center;
+    color: orangered;
+    margin: 2px;
 }
 
 #temperatura h1{
    
     display: inline-block;
     vertical-align: top;
+
+}
+
+#temperatura h1, h2, h3{
+   
+margin:2px;
+
+}
+
+#information{
+    text-align: center;
+
+    width: 250px;
+    height: 100px;
+
+
 
 }
 
