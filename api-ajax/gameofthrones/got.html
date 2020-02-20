@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -12,36 +12,54 @@
 
         function viewHouses(x){
 
-            $.get("https://anapioficeandfire.com/api/houses/"+x+"", function(res) {
-                console.log(res);
+            var id=parseInt(x);
+
+            var lord="";
+
+            $.get("https://anapioficeandfire.com/api/houses/"+id+"", function(res) {
+
+                
+                
                $('#name').html(res.name);
                $('#words').html(" ' "+res.words+"'");
                $('#region').html("Region: "+ res.region);
                $('#coatOfArms').html("Coat of Arms: "+res.coatOfArms);
 
+               lord=res.currentLord;
+               
+
+               if(lord!=""){
+
+                    $.get(res.currentLord, function(res2) {
+
+                        $('#currentlord').html("Current Lord: "+res2.name);
+                    
+                    }, "json");
+
+               }
+
+                
+
 
                var titulos="";
-                            for(var j = 0; j < res.titles.length; j++) {
-
-                               
-                                titulos+="<li>" + res.titles[j]+"</li>";
-
-
-                            }
+                
+                    for(var j = 0; j < res.titles.length; j++) {                               
+                        titulos+="<li>" + res.titles[j]+"</li>";
+                    }
 
                 $('#titles').html("Titles: "+titulos);
                 $('#founded').html("Founded: "+res.founded)
 
-                $.get(res.currentLord, function(res2) {
+               
 
-                    $('#currentlord').html("Current Lord: "+res2.name);
-                    
-                }, "json");
+                
 
 
             }, "json");
 
            $('#information').show();
+
+
 
         }
 
@@ -88,6 +106,7 @@
             <img id='285' src= 'martell.jpg' width="200" height="200">
             <img id='395' src='tully.jpg' width="200" height="200">
             <img id='398' src='tyrell.jpg' width="200" height="200">
+            <img id='378' src='targaryen.jpg' width="200" height="200">
 
         </div>
 
