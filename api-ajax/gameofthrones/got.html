@@ -17,7 +17,8 @@
             var lord="";
 
             $.get("https://anapioficeandfire.com/api/houses/"+id+"", function(res) {
-
+                console.log(res)
+;
                 
                 
                $('#name').html(res.name);
