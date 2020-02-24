@@ -1,0 +1,51 @@
+#container{
+    background-color: #d3d3ac;
+    width: 1000px;
+    height: 950px;
+    
+}
+
+#title{
+
+    background-color: #d3d3ac;
+
+    width: 900px;
+    height: 150px;
+    display:block;
+    text-align: center;
+    margin: 20px;
+
+}
+
+#title img, h1{
+    display: inline-block;
+
+}
+#subcontainer{
+
+
+    width: 950px;
+    height: 750px;
+    display: block;
+    margin:  
+
+}
+
+.celda{
+    border: black 5px solid;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    margin: 3px;
+   
+}
+
+.blue{
+    background-color: #84b4e9;
+}
+
+.red{
+    background-color: #ef6d73;
+}
