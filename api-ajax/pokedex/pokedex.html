@@ -12,8 +12,8 @@
 
             function pokemon(){
 
-                for (var i=1; i<=151 ; i++){
-                     $('#container').append('<img id='+i+' src=https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png>');
+                for (var i=1; i<=300 ; i++){
+                     $('#container').append('<img id='+i+' src=https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+i+'.png width=100px height=100px>');
                 } 
             }
 
@@ -36,7 +36,7 @@
             }
 
             function evolution(){
-                for (var i=1; i<=151;i++){
+                for (var i=1; i<=300;i++){
                 getEvolution(i);
                }
             }
@@ -51,6 +51,8 @@
 
                 $.get("https://pokeapi.co/api/v2/pokemon/"+x+"/", function(res) {
 
+                   
+
                         $('#name').html(res.name+" #"+x+"");
                         $('#imagen').attr('src','https:raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+x+'.png')
 
@@ -60,89 +62,89 @@
                                 tipos+="<li>" + res.types[j].type.name + "</li>";
 
                                 if(res.types[j].type.name=="grass"){
-                                    tipos+="<img src=grass.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=grass.png width=50px height=50px>";
 
                                 }
 
                                 if(res.types[j].type.name=="poison"){
-                                    tipos+="<img src=poison.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=poison.png width=50px height=50px>";
 
                                 }
 
                                 if(res.types[j].type.name=="fire"){
-                                    tipos+="<img src=fire.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=fire.png width=50px height=50px>";
 
                                 }
 
                                 if(res.types[j].type.name=="flying"){
-                                    tipos+="<img src=fly.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=fly.png width=50px height=50px>";
 
                                 }
 
                                 if(res.types[j].type.name=="bug"){
-                                    tipos+="<img src=bug.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=bug.png width=50px height=50px>";
 
                                 }
 
                                 if(res.types[j].type.name=="dark"){
-                                    tipos+="<img src=dark.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=dark.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="electric"){
-                                    tipos+="<img src=electric.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=electric.png width=50px height=50px>";
 
                                 }
 
                                 if(res.types[j].type.name=="normal"){
-                                    tipos+="<img src=normal.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=normal.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="fairy"){
-                                    tipos+="<img src=fairy.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=fairy.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="fighting"){
-                                    tipos+="<img src=fighting.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=fighting.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="ghost"){
-                                    tipos+="<img src=ghost.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=ghost.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="ground"){
-                                    tipos+="<img src=ground.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=ground.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="ice"){
-                                    tipos+="<img src=ice.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=ice.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="psychic"){
-                                    tipos+="<img src=psychic.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=psychic.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="rock"){
-                                    tipos+="<img src=rock.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=rock.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="water"){
-                                    tipos+="<img src=water.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=water.png width=50px height=50px>";
 
                                 }
 
                                 if(res.types[j].type.name=="steel"){
-                                    tipos+="<img src=steel.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=steel.png width=50px height=50px>";
 
                                 }
                                 if(res.types[j].type.name=="dragon"){
-                                    tipos+="<img src=dragon.png width=50px height=50px>";
+                                    tipos+="<img class='imgtype' src=dragon.png width=50px height=50px>";
 
                                 }
                             }
                             $('#typevalue').html(tipos) ;
                        
-                        $('#heightvalue').html("- "+res.height);
-                        $('#weightvalue').html("- "+res.weight);
+                        $('#height').html("Height: "+res.height);
+                        $('#weight').html("Weight: "+res.weight);
 
                         if(seeEvolutionchain(xnum)!=seeEvolutionchain(xnum+1) || xnum==134 || xnum==135 || xnum==136){
                             $('#evolutionimg').attr('src','lastevolution.png')
@@ -177,6 +179,8 @@
 
                     }, "json");
 
+
+                    $('#top').hide();
                     $('#pokedex').show();
 
 
@@ -191,12 +195,17 @@
                evolution();
 
                
+                $('#top').show();
+                $('#pokedex').hide();
 
-               $('#pokedex').hide();
-
-               $("img").click(function(){
+                $("img").click(function(){
                     viewPokemon($(this).attr('id'));
     
+                });
+
+                $('#hide').click(function(){
+                    $('#pokedex').hide();
+                    $('#top').show();
                 });
             })
 
@@ -214,25 +223,26 @@
 
                 <h2 id='name'></h2>
                 <img id='imagen'>
-                <h3 id='type'>Type:</h3>
-                 <ul id='typevalue'></ul>
 
+                <h4 id='height'></h4>
+                <h4 id='weight'></h4> 
+                <h4 id='type'>Type:</h4>
+                <ul id='typevalue'></ul>
 
-                <h3 id='height'>Height:</h3> <p id='heightvalue'></p>
-               
-
-                <h3 id='weight'>Weight:</h3><p id='weightvalue'></p>
-
-                <h3 id='evolution'>Evolution:</h3>
-                
-
+                <h4 id='evolution'>Evolution:</h3>
                 <img id='evolutionimg' width="100" height="100">
-
                 <p id='nameevolution'></p>
+                <button id='hide'>Close</button>
 
                 
 
             </div>
+
+        </div>
+
+        <div id='top'>
+
+            <img id='logo' src='pokedexlogo.png'>
 
         </div>
 

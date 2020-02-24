@@ -1,84 +1,113 @@
 #container{
-    background-color: white;
 
-    width: 950px;
+    background-color:#bcaa8a;
+    width: 900px;
     display: inline-block;
     
-
-}
-
-#container div{
-    display: inline-block;
-    
-    margin: 5px;
-    height: 100px;
-    width: 100px;
-    padding: 5px;
     
 }
-
-
 #container img{
-    height: 100px;
-    width: 100px;
+    border-bottom: #F2EEE7 5px solid;
     margin: 5px;
+    
 }
 
 #pokedex{
     width:350px;
-    height: 650px;
-    background-image: linear-gradient(to left, #ed3535, #df3232, #d22e2e, #c42b2b, #b72828, #b72828, #b72828, #b72828, #c42b2b, #d22e2e, #df3232, #ed3535);
-    /* display: inline-block; */
+    height: 620px;
+    background-color:#393f50;
+    display: inline-block;
     vertical-align: top;
-   
-
     position: fixed;
     top: 10px;
     left: 950px;
+    border-radius: 5px;
+}
+
+
+
+#top{
+    width:350px;
+    height: 620px;
+    background-color:#393f50;
+    display: inline-block;
+    vertical-align: top;
+    position: fixed;
+    top: 10px;
+    left: 950px;
+    border-radius: 10px;
 }
 
 #white{
 
-    background-color: white;
+    color:#F2EEE7;
+    background-color:  #435892;
     width: 300px;
-    height: 600px;
-    
-    /* display:block; */
+    height: 570px;
     margin: 15px;
-    padding: 10px;
     font-family: Arial;
     border-radius: 5px;
+    padding: 10px;
+    text-align: center;
     
 }
 
-#white h2{
+#name {
+    text-transform: capitalize
+}
+
+
+#white li{
+    width: 20%;
+    display: inline-block;
+    margin: 10px;
+}
+
+#white ul{
+   padding: 0px;
+}
+
+
+#height{
+    display: inline-block;
+    width: 40%;
+    
+}   
+
+#weight{
+    display: inline-block;
+    width: 40%;
+}
+
+
+#name, #nameevolution, #evolution{
     text-align: center;
-    margin: 1px;
-}
+    margin-top: 5px,1px,1px,1px;
 
-#white h3{
-    margin: 3px;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-  
-}
-
-#white p{
-    margin: 5px;
+   
 }
 
 #imagen{
     margin-left: 100px;
+    display: block;
+
+    border: #F2EEE7 2px solid;
+
 }
-
-#white li{
-    margin: 5px;
-}
-
-
 
 #evolutionimg{
-
-    margin:0px;
+    border-bottom: #F2EEE7 2px solid;
+    
 }
 
+.imgtype{
+   vertical-align: middle;
+    text-align: center;
+
+}
+
+#logo{
+    text-align: center;
+    margin-top: 200px;
+    margin-left: 40px;
+}
