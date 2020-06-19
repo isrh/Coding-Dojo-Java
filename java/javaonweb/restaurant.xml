@@ -1,0 +1,45 @@
+<xml version="1.0" encoding="UTF-8">
+<restaurant-app>
+    <item category="breakfastmenu">
+        <name>Huevos con tocino</name>
+        <description>Huevos con tocino .</description>
+        <price>$10.99</price>
+    </item>
+    <item category="breakfastmenu">
+        <name>Sánduche de Pollo</name>
+        <description>Un sánduche de pollo. </description>
+        <price>$12.99</price>
+    </item>
+    <item category="breakfastmenu">
+        <name>Sánduche de Pastrami</name>
+        <description>Un sánduche hecho con pastrami.</description>
+        <price>$13.99</price>
+    </item>
+
+    <item category="lunchmenu">
+        <name>Bacon Cheese Burger</name>
+        <description>Hamburguesas con tocino y queso fundido, acompañado con papas fritas</description>
+        <price>$14.99</price>
+    </item>
+    <item category="lunchmenu">
+        <name>Spaghetti</name>
+        <description>Spaghetti italiano con salsa bolognesa </description>
+        <price>$10.99</price>
+    </item>
+    <item category="lunchmenu">
+        <name>Caesar Salad</name>
+        <description>Ensalada Cesar, saludable y deliciosa</description>
+        <price>$12.99</price>
+    </item>
+
+    <item category="dinner">
+        <name>Salmon con arroz</name>
+        <description>Salmon a la plancha con arroz.</description>
+        <price>$20.99</price>
+    </item>
+    <item category="dinner">
+        <name>BBQ Ribs</name>
+        <description>Costillas de cerdo bbq. con papas fritas.</description>
+        <price>$25.99</price>
+    </item>    
+</restaurant-app>
