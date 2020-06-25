@@ -1,0 +1,25 @@
+
+@charset "UTF-8";
+* {
+	margin:		0;
+	padding:	0;
+}
+
+.row {
+	margin-bottom:	-4px;
+	display:	flex;
+	justify-content:	center;
+	background-color: red;
+}
+.black {
+	background-color: black;
+	height:		50px;
+	width:		50px;
+	flex-shrink:	1;
+}
+.white {
+	background-color:white;
+	height:		50px;
+	width:		50px;
+	flex-shrink:	1;
+}
