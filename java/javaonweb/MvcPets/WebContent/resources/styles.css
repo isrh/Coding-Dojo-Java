@@ -1,0 +1,24 @@
+
+@charset "UTF-8";
+* {
+	margin:		0;
+	padding:	0;
+}
+
+.container {
+
+	background-color: blue;
+}
+
+.dogform{
+	width:400px;
+	height:400px;
+	display: inline-blocl;
+}
+
+.catform{
+	width:400px;
+	height:400px;
+	display: inline-blocl;
+}
+
