@@ -1,0 +1,17 @@
+@charset "UTF-8";
+* {
+	margin:		0;
+	padding:	0;
+}
+
+.container{
+	text-align: center;
+	width: 500px;
+	height: 500px;
+	
+	position: absolute;
+  	left: 50%;
+  	top: 50%;
+   transform: translate(-50%, -50%);
+
+}

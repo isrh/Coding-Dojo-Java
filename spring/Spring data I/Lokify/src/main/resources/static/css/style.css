@@ -1,0 +1,40 @@
+@charset "UTF-8";
+* {
+	margin:		0;
+	padding:	0;
+}
+
+.welcome{
+	text-align: center;
+	width: 500px;
+	height: 500px;
+	
+	position: absolute;
+  	left: 50%;
+  	top: 50%;
+   transform: translate(-50%, -50%);
+
+}
+
+.songcard{
+	text-align: center;
+	width: 500px;
+	height: 500px;
+	
+	position: absolute;
+  	left: 50%;
+  	top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.header{
+	margin-top: 50px;
+}
+
+.lookify{
+	margin-top: 50px;
+}
+
+.search{
+	margin-left:300px;
+}
